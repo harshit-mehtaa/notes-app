@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
-
+from .views import *
 
 urlpatterns = [
-    path('', views.getRoutes, name='routes'),
+    path('notes/', GetNotes.as_view(), name='notes'),
+    path('notes/<str:pk>/', GetNote.as_view(), name='note'),
 ]
