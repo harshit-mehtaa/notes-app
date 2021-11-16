@@ -5,5 +5,5 @@ from .serializers import NoteSerializer
 
 
 class NotesViewSet(ModelViewSet):
-    queryset = Note.objects.all()
+    queryset = Note.objects.all().order_by('-updated')
     serializer_class = NoteSerializer
