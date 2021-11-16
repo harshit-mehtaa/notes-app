@@ -131,9 +131,6 @@ dmypy.json
 # Pycharm
 .idea/
 
-# Virtualenv
-env/
-
 # Django DB Migrations
 backend/api/migrations/
 
