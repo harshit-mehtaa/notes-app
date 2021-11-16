@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
-from .serializers import NoteSerializer
+
 from .models import Note
+from .serializers import NoteSerializer
 
 
 class NotesViewSet(ModelViewSet):
