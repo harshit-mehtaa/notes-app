@@ -28,6 +28,16 @@ const NotePage = ({ match, history }) => {
 		setNote(data);
 	};
 
+	let deleteNote = async () => {
+		let response = await fetch(`/api/notes/${noteId}/`, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+		history.push("/");
+	};
+
 	let handleSubmit = () => {
 		updateNote();
 		history.push("/");
@@ -39,6 +49,7 @@ const NotePage = ({ match, history }) => {
 				<h3>
 					<ArrowLeft onClick={handleSubmit} />
 				</h3>
+                <button onClick={deleteNote}>Delete</button>
 			</div>
 			<textarea
 				defaultValue={note?.body}
