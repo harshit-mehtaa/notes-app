@@ -7,8 +7,8 @@ let getTitle = (note) => {
 };
 
 let getContent = (note) => {
-    let content = note.body.replaceAll("\n", '').replaceAll(getTitle(note), '');
-    return content.length > 45 ? content.slice(0, 45) + '...' : content;
+	let content = note.body.replaceAll("\n", "").replaceAll(getTitle(note), "");
+	return content.length > 45 ? content.slice(0, 45) + "..." : content;
 };
 
 let getTime = (note) => {
@@ -20,7 +20,7 @@ const ListItem = ({ note }) => {
 		<Link to={`/note/${note.id}`}>
 			<div className="notes-list-item">
 				<h3>{getTitle(note)}</h3>
-                <p>
+				<p>
 					<span>{getContent(note)}</span>
 				</p>
 				<p>
