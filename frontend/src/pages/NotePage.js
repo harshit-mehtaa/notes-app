@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { ReactComponent as ArrowLeft } from "../assets/arrow-left.svg";
 
 const NotePage = ({ match, history }) => {
@@ -29,7 +28,7 @@ const NotePage = ({ match, history }) => {
 	};
 
 	let deleteNote = async () => {
-		let response = await fetch(`/api/notes/${noteId}/`, {
+		await fetch(`/api/notes/${noteId}/`, {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json",
