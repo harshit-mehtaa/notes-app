@@ -6,17 +6,16 @@ const NotePage = ({ match, history }) => {
 	let [note, setNote] = useState(null);
 
 	useEffect(() => {
+		async function getNote() {
+			if (noteId === "new") return;
+
+			let response = await fetch(`/api/notes/${noteId}`);
+			let data = await response.json();
+			setNote(data);
+		}
 		getNote();
 		return () => {};
 	}, [noteId]);
-
-	let getNote = async () => {
-		if (noteId === "new") return;
-
-		let response = await fetch(`/api/notes/${noteId}`);
-		let data = await response.json();
-		setNote(data);
-	};
 
 	let createNote = async () => {
 		await fetch(`/api/notes/`, {
@@ -51,7 +50,7 @@ const NotePage = ({ match, history }) => {
 	};
 
 	let handleSubmit = () => {
-		if (noteId === "new" && note.body !== null) {
+		if (noteId === "new" && note !== null) {
 			createNote();
 		} else if (noteId !== "new") {
 			updateNote();
